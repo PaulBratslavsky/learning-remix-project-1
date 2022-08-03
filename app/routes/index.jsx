@@ -1,43 +1,24 @@
-import LinkStyled from '~/components/LinkStyled';
+import LinkStyled from "~/components/LinkStyled";
+import HomeCard from '~/components/HomeCard';
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+    <section className="bg-homeBg dark:bg-homeTwoBg-dark min-h-screen  bg-no-repeat bg-center bg-cover bg-fixed  md:pb-16 w-full">
+      <div className="container grid grid-cols-12 md:gap-10  justify-between lg:mt-[220px] ">
+        <div className="col-span-12 lg:col-span-4 hidden lg:block h-screen sticky top-44">
+          {/* profile sidebar */}
+          <HomeCard />
+          
 
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+          <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        </div>
+        <div className="col-span-12 lg:col-span-8  ">
+          {/* header two  */}
 
-    <LinkStyled to="/posts">Posts</LinkStyled>
-
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+          <h1>Col 2</h1>
+          <LinkStyled to="/posts">Posts</LinkStyled>
+        </div>
+      </div>
+    </section>
   );
 }
