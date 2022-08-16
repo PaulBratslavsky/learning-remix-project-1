@@ -1,5 +1,8 @@
 import { RemixServer } from "@remix-run/react";
 import { renderToString } from "react-dom/server";
+import { getEnv } from "../env.server";
+
+global.ENV = getEnv();
 
 export default function handleRequest(
   request,
