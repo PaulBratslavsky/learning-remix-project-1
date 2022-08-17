@@ -1,7 +1,4 @@
-const formatDate = (dateString) => {
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  return new Date(dateString).toLocaleDateString(undefined, options);
-};
+import { formatDate } from "~/helpers/formatDate";
 
 export default function EventLinkCard({ data }) {
   const { title, image, time_and_date } = data.attributes;

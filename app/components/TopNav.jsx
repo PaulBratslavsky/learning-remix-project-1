@@ -1,20 +1,27 @@
 import { Link } from "@remix-run/react";
-
+import MenuLink from "~/components/MenuLink";
 export default function TopNav() {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <Link className="normal-case text-xl" to="/">Events</Link>
+        <Link className="normal-case text-2xl text-blue-500 font-bold" to="/">
+          Events
+        </Link>
       </div>
       <nav>
-        <ul>
-          <li>
-            <Link to="/events">Events</Link>
-          </li>
+        <ul className="flex">
+          <MenuLink to="/events">Events</MenuLink>
         </ul>
       </nav>
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost">
+        <Link
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          to="/events/add-event"
+        >
+          Add Event
+        </Link>
+
+        {/* <button className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -28,7 +35,7 @@ export default function TopNav() {
               d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
             ></path>
           </svg>
-        </button>
+        </button> */}
       </div>
     </div>
   );

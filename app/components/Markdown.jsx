@@ -1,6 +1,5 @@
 import * as React from "react";
 import { renderers, parse, transform } from "@markdoc/markdoc";
-import styles from "./styles.css";
 
 // TODO: FIGURE OUT HOW TO DO SCOPED COMPOENT STYLES
 
@@ -11,5 +10,5 @@ export function markdown(markdown, config) {
 }
 
 export function Markdown({ content, config = {} }) {
-  return <>{renderers.react(markdown(content, config), React)}</>;
+  return <div className="markdown">{renderers.react(markdown(content, config), React)}</div>;
 }

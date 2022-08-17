@@ -1,3 +1,21 @@
 @tailwind base; 
 @tailwind components; 
 @tailwind utilities;
+
+
+.markdown {
+  background: black;
+  color: white;
+}
+
+.markdown h1 {
+  color: red;
+}
+
+.markdown h2 {
+  color: red;
+}
+
+.markdown h3 {
+  color: red;
+}
