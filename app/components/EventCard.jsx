@@ -8,7 +8,7 @@ export default function EventCard({ data }) {
   const imageURL = ENV.BASE_URL + image.data.attributes.url;
 
   return (
-    <div className="card">
+    <div className="card bg-base-100">
       <div className="h-44 mb-4 md:h-72 overflow-hidden relative rounded-t-lg w-full">
         <img
           src={imageURL}
@@ -16,8 +16,8 @@ export default function EventCard({ data }) {
           className="w-full h-full absolute inset-0 object-cover"
         />
       </div>
-      <div className="">
-        <h1 className="lg:text-3xl text-2xl font-semibold mb-6">
+      <div className="p-4">
+        <h1 className="lg:text-3xl text-2xl font-semibold mb-6 text-primary">
           {title}
         </h1>
 
@@ -28,13 +28,13 @@ export default function EventCard({ data }) {
             className="w-10 h-10 rounded-full"
           />
           <div>
-            <div className="text-base font-semibold"> Stella Johnson </div>
+            <div className="text-info font-semibold"> Stella Johnson </div>
             <div className="text-xs"> Published on {formatDate(publishedAt)} </div>
           </div>
         </div>
 
-        <div className="my-3 p-3 bg-slate-200">
-          {description}
+        <div className="my-3 p-3">
+          <p>{description}</p>
         </div>
 
         { content && <div className="my-3">

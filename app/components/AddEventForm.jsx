@@ -1,72 +1,74 @@
 import { Form } from "@remix-run/react";
-export default function AddEventForm({ data }) {
+import Input from "~/components/Input";
+export default function AddEventForm({ data, transition }) {
   return (
     <Form
-      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      className="bg-base-100 rounded-xl px-8 pt-6 pb-8 mb-4"
       method="post"
       encType="multipart/form-data"
     >
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-          Title:
-        </label>
-        <input
+      <fieldset disabled={transition.status === "loading"}>
+        {/* <h1>{transition.state}</h1> */}
+        <Input
           id="title"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           name="title"
           type="text"
-          placeholder="Title"
+          placeholder="Enter event title"
+          label="Title"
+          required
         />
-      </div>
 
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
-          Image
-        </label>
-        <input
-          id="image"
-          type="file"
-          name="image"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-        />
-      </div>
+        <div className="mb-6">
+          <label
+            className="block text-secondary text-sm font-bold mb-2"
+            htmlFor="image"
+          >
+            Image
+          </label>
+          <input
+            id="image"
+            type="file"
+            name="image"
+            className="appearance-none border border-base-100 rounded w-full py-2 px-3 bg-base-200 text-primary leading-tight focus:outline-none focus:border-secondary focus:shadow focus:shadow-outline"
+            required
+          />
+        </div>
 
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
-          Date
-        </label>
-        <input
+        <Input
           id="date"
           type="date"
           name="date"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          label="Event Date"
+          defaultValue={new Date().toISOString().split("T")[0]}
+          required
         />
-      </div>
 
-      <div class="mb-6">
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="description"
-        >
-          Description
-        </label>
-        <textarea
-          id="description"
-          name="description"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-        />
-      </div>
+        <div className="mb-6">
+          <label
+            className="block text-secondary text-sm font-bold mb-2"
+            htmlFor="description"
+          >
+            Description
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            className="input bg-base-200 text-primary focus:outline-none focus:border-secondary w-full"
+            required
+          />
+        </div>
 
-      <div className="flex items-center justify-between">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          type="submit"
-          name="action"
-          value="update"
-        >
-          Submit
-        </button>
-      </div>
+        <div className="flex items-center justify-between">
+          <button
+            className="btn btn-primary"
+            type="submit"
+            name="action"
+            value="update"
+          >
+            {transition.status === "loading" ? "Submiting..." : "Submit"}
+          </button>
+        </div>
+      </fieldset>
     </Form>
   );
 }

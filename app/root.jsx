@@ -8,7 +8,6 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-import TopNav from './components/TopNav';
 import { getEnv } from "../env.server";
 import styles from "./styles/app.css"
 
@@ -28,20 +27,23 @@ export function links() {
   return [{ rel: "stylesheet", href: styles }]
 }
 
+/* 
+  cupcake 
+  dracula
+  halloween
+*/
+
 export default function App() {
   const data = useLoaderData()
   return (
-    <html lang="en" data-theme="cupcake">
+    <html lang="en" data-theme="cupcake" className="bg-base-300">
       <head>
         <Meta />
-
         <Links />
       </head>
 
-      <body className='container mx-auto'>
-        <TopNav />
+      <body>
         <Outlet />
-
         <ScrollRestoration />
 
         <Scripts />

@@ -1,4 +1,4 @@
-import { useActionData } from "@remix-run/react";
+import { useActionData, useTransition } from "@remix-run/react";
 import {
   json,
   redirect,
@@ -37,6 +37,7 @@ export async function action({ request }) {
 }
 
 export function CatchBoundary() {
+
   return (
     <div>
       <h2>Opps. Something went horibly wrong!</h2>
@@ -45,6 +46,7 @@ export function CatchBoundary() {
 }
 
 export default function AddEventRoute() {
-  let data = useActionData();
-  return <AddEventForm data={data} />;
+  const transition = useTransition();
+  const data = useActionData();
+  return <AddEventForm data={data} transition={transition}/>;
 }
