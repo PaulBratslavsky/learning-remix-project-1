@@ -3,8 +3,6 @@ import { renderers, parse, transform } from "@markdoc/markdoc";
 
 // TODO: FIGURE OUT HOW TO DO SCOPED COMPOENT STYLES
 
-export const links = () => [{ rel: "stylesheet", href: styles }];
-
 export function markdown(markdown, config) {
   return transform(parse(markdown, config));
 }
