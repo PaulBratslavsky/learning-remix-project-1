@@ -7,7 +7,7 @@ export default function EventLinkCard({ data }) {
 
   const selected = useParams().slug === data.attributes.slug;
 
-  const imageURL = ENV.BASE_URL + attributes.formats.thumbnail.url;
+  const imageURL = attributes.formats.thumbnail.url;
   return (
     <div className={`flex items-center space-x-4 py-3 mb-2 hover:bg-base-100 rounded-md px-2 ${selected && "bg-base-100"}`}>
       <div className="mr-1 w-14 h-14 flex-shrink-0 rounded-md relative">

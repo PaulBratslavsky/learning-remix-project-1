@@ -4,8 +4,9 @@ import { formatDate } from "~/helpers/formatDate";
 
 export default function EventCard({ data }) {
   const { title, image, description, content, publishedAt } = data.attributes;
+  console.log(image.data.attributes.url);
 
-  const imageURL = ENV.BASE_URL + image.data.attributes.url;
+  const imageURL = image.data.attributes.url;
 
   return (
     <div className="card bg-base-100">
