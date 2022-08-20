@@ -15,7 +15,7 @@ export default function Footer() {
         </svg>
         <p>Copyright © 2022 - All right reserved</p>
       </div>
-      <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      {/* <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         <a
           href="https://twitter.com/codingthirty"
           target="_blank"
@@ -61,7 +61,7 @@ export default function Footer() {
             <path d="M14.5 0h-13c-0.825 0-1.5 0.675-1.5 1.5v13c0 0.825 0.675 1.5 1.5 1.5h13c0.825 0 1.5-0.675 1.5-1.5v-13c0-0.825-0.675-1.5-1.5-1.5zM6 13h-2v-7h2v7zM5 5c-0.553 0-1-0.447-1-1s0.447-1 1-1c0.553 0 1 0.447 1 1s-0.447 1-1 1zM13 13h-2v-4c0-0.553-0.447-1-1-1s-1 0.447-1 1v4h-2v-7h2v1.241c0.412-0.566 1.044-1.241 1.75-1.241 1.244 0 2.25 1.119 2.25 2.5v4.5z"></path>
           </svg>
         </a>
-      </div>
+      </div> */}
     </footer>
   );
 }
