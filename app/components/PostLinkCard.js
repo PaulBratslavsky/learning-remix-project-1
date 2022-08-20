@@ -2,14 +2,10 @@ import { useParams } from '@remix-run/react';
 import { formatDate } from "~/helpers/formatDate";
 
 export default function PostLinkCard({ data }) {
-  console.log(data)
   const { title, featuredImage, createdAt } = data.attributes;
   const { attributes } = featuredImage.data;
 
-  console.log(attributes)
-
   const selected = useParams().slug === data.attributes.slug;
-
   const imageURL = attributes.formats.thumbnail.url;
 
   return (

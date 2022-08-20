@@ -1,9 +1,13 @@
-import { Markdown } from "./Markdown";
+// import { Markdown } from "./Markdown";
 import { formatDate } from "~/helpers/formatDate";
 
-export default function EventCard({ data }) {
-  const { title, image, description, content, publishedAt } = data.attributes;
-  const imageURL = image.data.attributes.url;
+export default function PostCard({ data }) {
+  const { title, featuredImage, description, publishedAt, author } = data.attributes;
+
+  console.log(data)
+
+
+  const imageURL = featuredImage.data.attributes.url;
 
   return (
     <div className="card bg-base-100">
@@ -39,9 +43,9 @@ export default function EventCard({ data }) {
           <p>{description}</p>
         </div>
 
-        { content && <div className="my-3">
+        {/* { content && <div className="my-3">
           <Markdown content={content} />
-        </div> }
+        </div> } */}
 
         {/* <div className="space-y-3">
           <p>
