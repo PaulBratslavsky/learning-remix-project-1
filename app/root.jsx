@@ -8,6 +8,7 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
+import TopNav from "~/components/TopNav";
 import { getEnv } from "../env.server";
 import styles from "./styles/app.css"
 
@@ -43,6 +44,7 @@ export default function App() {
       </head>
 
       <body>
+        <TopNav />
         <Outlet />
         <ScrollRestoration />
 

@@ -1,7 +1,6 @@
 import { Link } from "@remix-run/react";
 import MenuLink from "~/components/MenuLink";
-import ButtonLink from "~/components/ButtonLink";
-
+import ShowButtonByUrl from '~/components/ShowButtonByUrl';
 export default function TopNav() {
   return (
     <div className="navbar bg-base-100 fixed top-0 z-10">
@@ -17,11 +16,11 @@ export default function TopNav() {
         <nav>
           <ul className="flex">
             <MenuLink to="/events">Events</MenuLink>
+            <MenuLink to="/posts">Posts</MenuLink>
           </ul>
         </nav>
         <div className="flex-none">
-          <ButtonLink to="/events/add-event">Add Event</ButtonLink>
-
+          <ShowButtonByUrl />
           {/* <button className="btn btn-square btn-ghost ml-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"

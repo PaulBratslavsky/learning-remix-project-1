@@ -1,7 +1,6 @@
 import { Markdown } from "./Markdown";
 import { formatDate } from "~/helpers/formatDate";
 
-
 export default function EventCard({ data }) {
   const { title, image, description, content, publishedAt } = data.attributes;
   console.log(image.data.attributes.url);
@@ -22,16 +21,20 @@ export default function EventCard({ data }) {
           {title}
         </h1>
 
-        <div className="flex items-center space-x-3 my-4 pb-4 border-b border-gray-100">
+        <div className="relative flex items-center space-x-3 my-4 pb-4 border-b border-gray-100">
           <img
             src={imageURL}
             alt=""
             className="w-10 h-10 rounded-full"
           />
+          
           <div>
             <div className="text-info font-semibold"> Stella Johnson </div>
             <div className="text-xs"> Published on {formatDate(publishedAt)} </div>
           </div>
+
+          {/* <ButtonLink className="absolute right-1" to="add-event">Recommend Event</ButtonLink> */}
+
         </div>
 
         <div className="my-3 p-3">
