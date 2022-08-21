@@ -1,13 +1,15 @@
-export async function createEvent(data, image) {
+export async function recommend(data, image) {
 
   const baseUrl = process.env.BASE_URL
-  const query = `/api/events`;
+  const query = `/api/recommendations`;
 
   const url = baseUrl + query;
 
+  const hasImage = image._name === "" ? false : true;
+
   const formData = new FormData();
   formData.append('data', JSON.stringify(data));
-  formData.append('files.image', image, image.name);
+  if (hasImage) formData.append('files.image', image, image.name);
   const response = await fetch(url, {
     method: 'POST',
     body: formData,
@@ -15,3 +17,4 @@ export async function createEvent(data, image) {
 
   return response.json();
 }
+

@@ -26,14 +26,13 @@ export async function action({ request }) {
     title,
     slug: slugify(title),
     description: formData.get("description"),
-    event_date: formData.get("date"),
-    type: "event",
+    type: "post",
     reviewed: false,
   };
 
   const event = await recommend(data, image);
 
-  if (event.data) return redirect(`/events/success`);
+  if (event.data) return redirect(`/posts/success`);
   // if (event.data) return redirect(`/events/${event.data.attributes.slug}`);
   else throw json("Opps", { status: 400 })
 }
@@ -50,5 +49,5 @@ export function CatchBoundary() {
 export default function AddEventRoute() {
   const transition = useTransition();
   const data = useActionData();
-  return <RecommendationForm data={data} transition={transition} type="event" />;
+  return <RecommendationForm data={data} transition={transition} type="post" />;
 }
