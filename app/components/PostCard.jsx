@@ -1,20 +1,25 @@
 // import { Markdown } from "./Markdown";
-import { formatDate } from "~/helpers/formatDate";
+
+import { formatDate, getImageThumbnail, selelctComponent } from '~/helpers';
 
 export default function PostCard({ data }) {
-  const { title, featuredImage, description, publishedAt, author } = data.attributes;
 
-  console.log(data)
+  const { title, featuredImage, description, publishedAt, author, Components } =
+    data.attributes;
 
+  const { firstName, lastName, avatar } = author.data.attributes;
 
-  const imageURL = featuredImage.data.attributes.url;
+  const authorName = `${firstName} ${lastName}`;
+
+  const authorImageUrl = getImageThumbnail(avatar);
+  const featuredImageUrl = featuredImage.data.attributes.url;
 
   return (
     <div className="card bg-base-100">
       <div className="h-44 mb-4 md:h-72 overflow-hidden relative rounded-t-lg w-full">
         <img
-          src={imageURL}
-          alt=""
+          src={featuredImageUrl}
+          alt={title}
           className="w-full h-full absolute inset-0 object-cover"
         />
       </div>
@@ -24,28 +29,32 @@ export default function PostCard({ data }) {
         </h1>
 
         <div className="relative flex items-center space-x-3 my-4 pb-4 border-b border-gray-100">
-          <img
-            src={imageURL}
-            alt=""
-            className="w-10 h-10 rounded-full"
-          />
-          
+          {authorImageUrl && (
+            <img
+              src={authorImageUrl}
+              alt={authorName}
+              className="w-10 h-10 rounded-full"
+            />
+          )}
+
           <div>
-            <div className="text-info font-semibold"> Stella Johnson </div>
-            <div className="text-xs"> Published on {formatDate(publishedAt)} </div>
+            <div className="text-info font-semibold">{authorName}</div>
+            <div className="text-xs">
+              {" "}
+              Published on {formatDate(publishedAt)}{" "}
+            </div>
           </div>
 
           {/* <ButtonLink className="absolute right-1" to="add-event">Recommend Event</ButtonLink> */}
-
         </div>
 
         <div className="my-3 p-3">
           <p>{description}</p>
         </div>
 
-        {/* { content && <div className="my-3">
-          <Markdown content={content} />
-        </div> } */}
+        <div className='my-3 p-3'>
+          { Components && selelctComponent(Components) }
+        </div>
 
         {/* <div className="space-y-3">
           <p>

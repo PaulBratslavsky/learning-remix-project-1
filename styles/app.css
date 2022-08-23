@@ -4,18 +4,23 @@
 
 
 .markdown {
-  background: black;
-  color: white;
+  @apply text-gray-900;
 }
 
 .markdown h1 {
-  color: red;
+  @apply mb-4 text-primary text-4xl font-bold;
 }
 
 .markdown h2 {
-  color: red;
+  @apply mb-3 text-primary text-2xl font-bold;
+
 }
 
 .markdown h3 {
-  color: red;
+  @apply mb-3 text-primary text-xl font-bold;
+
+}
+
+.markdown p {
+  @apply mb-3 text-gray-800 font-normal text-xl;
 }
