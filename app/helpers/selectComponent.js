@@ -1,4 +1,5 @@
-import { Markdown } from '~/components/Markdown';
+import Markdown from '~/components/Markdown';
+import Code from '~/components/Code';
 
 export function selelctComponent(components) {
   return components.map((component) => {
@@ -15,7 +16,7 @@ export function selelctComponent(components) {
         return <h1>will be image component</h1>
 
       case "my-components.code":
-        return <h1>will be code component</h1>
+        return <Code data={component} />
 
       default:
         return null;

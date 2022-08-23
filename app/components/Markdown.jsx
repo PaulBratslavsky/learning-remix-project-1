@@ -7,6 +7,6 @@ export function markdown(markdown, config) {
   return transform(parse(markdown, config));
 }
 
-export function Markdown({ content, config = {} }) {
+export default function Markdown({ content, config = {} }) {
   return <div className="markdown">{renderers.react(markdown(content, config), React)}</div>;
 }

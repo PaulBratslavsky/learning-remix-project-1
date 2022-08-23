@@ -1,4 +1,4 @@
-import { Markdown } from "./Markdown";
+import Markdown  from "~/components/Markdown";
 import { formatDate } from "~/helpers/formatDate";
 
 export default function EventCard({ data }) {
